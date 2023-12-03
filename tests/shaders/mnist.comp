@@ -1,16 +1,16 @@
 #version 460
 
-layout (binding = 0) readonly buffer SrcBuffer {
+layout (local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
+
+layout (std430, binding = 0) readonly buffer SrcBuffer {
     int x[];
 } src;
 
-layout (binding = 1) buffer DstBuffer {
+layout (std430, binding = 1) buffer DstBuffer {
     int x[];
 } dst;
 
 void main() {
     uint gID = gl_GlobalInvocationID.x;
-    if (gID < 256) {
-        dst.x[gID] = src.x[gID] * 2;
-    }
+    dst.x[gID] = src.x[gID] * 2;
 }

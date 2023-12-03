@@ -15,17 +15,17 @@ inline void Log(T x, Args&&... args) {
 
 template <typename... Args>
 inline void LogInfo(Args&&... args) {
-    Log("NN Info: ", args...);
+    Log("Info: ", args...);
 }
 
 template <typename... Args>
 inline void LogWarning(Args&&... args) {
-    Log("NN Warning: ", args...);
+    Log("Warning: ", args...);
 }
 
 template <typename... Args>
 inline void LogError(Args&&... args) {
-    Log("NN Error: ", args...);
+    Log("Error: ", args...);
 }
 
 } // namespace nn

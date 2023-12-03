@@ -17,9 +17,9 @@ add_library(NN STATIC ${CXX_SOURCES} ${HXX_HEADERS})
 target_link_libraries(NN PUBLIC Vulkan::Vulkan)
 
 if (MSVC)
-    set_target_properties(NN PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} /W4")
+    set_target_properties(NN PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 else ()
-    set_target_properties(NN PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic")
+    set_target_properties(NN PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic")
 endif ()
 
 target_include_directories(NN PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
